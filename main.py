@@ -25,8 +25,8 @@ def list_todos():
 def complete_todo():
     print_todos()
     user_input = input("Which todo has been completed? (put the ID)\n")
-    print_todos()
     todo_id = int(user_input)
+    # https://docs.python.org/3/tutorial/datastructures.html
     todos.pop(todo_id)
 
 def main():
