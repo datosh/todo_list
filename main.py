@@ -6,7 +6,8 @@ def read_verb():
     verbs = ["add", "list", "complete", "exit"]
     user_input = input("What do you want to do? " + str(verbs) + "\n")
     if user_input not in verbs:
-        sys.exit("This verb is not supported: " + user_input)
+        print("This verb is not supported: " + user_input)
+        return None
     return user_input
 
 def add_todo():
@@ -32,6 +33,8 @@ def complete_todo():
 def main():
     while True:
         verb = read_verb()
+        if verb == None:
+            continue
         if verb == "add":
             add_todo()
         if verb == "list":
@@ -39,8 +42,9 @@ def main():
         if verb == "complete":
             complete_todo()
         if verb == "exit":
-            return
+            break
         # Separate each command visually
         print("\n")
+    print("Bye bye...")
 
 main()
